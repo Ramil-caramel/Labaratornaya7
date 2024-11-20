@@ -67,47 +67,16 @@ void loadFromFile(const std::string& filename, Groups& outGroups) {
 
             else {
                 if (line.size() == 6 and line.substr(0, 4) == "math") {
-                    if (line[5] == '2') {
-                        pr.RecordBook["math"] = Unsatisfactorily;
-                    }
-                    else if (line[5] == '3') {
-                        pr.RecordBook["math"] = Satisfactorily;
-                    }
-                    else if (line[5] == '4') { ////////////////////////////////////////////////
-                        pr.RecordBook["math"] = Good;
-                    }
-                    else if (line[5] == '5') {
-                        pr.RecordBook["math"] = Excellent;
-                    }
+                    Score score = Score(line[5] - '0');
+                    pr.RecordBook["math"] = score;
                 }
                 else if (line.size() == 4 and line.substr(0, 2) == "Pe") {
-                    if (line[3] == '2') {
-                        pr.RecordBook["Pe"] = Unsatisfactorily;
-                    }
-                    else if (line[3] == '3') {
-                        pr.RecordBook["Pe"] = Satisfactorily;
-                    }
-                    else if (line[3] == '4') {
-                        pr.RecordBook["Pe"] = Good;
-                    }
-                    else if (line[3] == '5') {
-                        pr.RecordBook["Pe"] = Excellent;
-                    }
-
+                    Score score = Score(line[3] - '0');
+                    pr.RecordBook["Pe"] = score;
                 }
                 else if (line.size() == 5 and line.substr(0, 3) == "ENG") {
-                    if (line[4] == '2') {
-                        pr.RecordBook["ENG"] = Unsatisfactorily;
-                    }
-                    else if (line[4] == '3') {
-                        pr.RecordBook["ENG"] = Satisfactorily;
-                    }
-                    else if (line[4] == '4') {
-                        pr.RecordBook["ENG"] = Good;
-                    }
-                    else if (line[4] == '5') {
-                        pr.RecordBook["ENG"] = Excellent;
-                    }
+                    Score score = Score(line[4] - '0');
+                    pr.RecordBook["ENG"] = score;
 
                 }
                 else {
